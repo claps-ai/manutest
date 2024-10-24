@@ -1,7 +1,36 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vent App</title>
+    <!-- Suppress the favicon 404 error -->
+    <link rel="icon" href="data:,">
+</head>
 <body>
-<elevenlabs-convai agent-id="Ge9bWaSEuvBnfKiDSMwz"></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script><h1>Welcome to Vent</h1>
+
+    <elevenlabs-convai agent-id="Ge9bWaSEuvBnfKiDSMwz"></elevenlabs-convai>
+
+    <h1>Welcome to Vent</h1>
+
+    <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+
+    <script>
+        // Debugging the WebSocket connection manually
+        const ws = new WebSocket('wss://api.elevenlabs.io/v1/convai/conversation?agent_id=Ge9bWaSEuvBnfKiDSMwz');
+
+        ws.onopen = () => {
+            console.log("WebSocket connection opened");
+        };
+
+        ws.onerror = (error) => {
+            console.error("WebSocket error observed:", error);
+        };
+
+        ws.onclose = (event) => {
+            console.log('WebSocket connection closed:', event);
+        };
+    </script>
+
 </body>
 </html>
